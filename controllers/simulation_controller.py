@@ -2,7 +2,7 @@ from starlette.responses import JSONResponse
 from universal_generator import UniversalTrafficGenerator
 from utils import name_from_param, set_sumo
 from model import TestModel
-from fixed_duration_calculation import get_durations
+from simulation_methods.fixed_duration_calculation import get_durations
 from simulation_methods.fixed_time_sim import Simulation
 from visualization import Visualization
 
