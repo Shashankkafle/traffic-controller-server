@@ -1,0 +1,1 @@
+{'gui': False, 'max_steps': 5400, 'n_cars_generated': 3000, 'episode_seed': 10000, 'green_duration': 10, 'yellow_duration': 3, 'clearence_interval': 3, 'num_states': 80, 'num_actions': 4, 'sumocfg_file_name': 'sumo_config.sumocfg', 'models_path_name': 'models', 'model_to_test': 6}

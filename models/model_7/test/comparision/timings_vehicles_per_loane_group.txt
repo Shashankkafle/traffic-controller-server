@@ -1,0 +1,12 @@
+route_W2TL_TL2E: 302
+route_N2TL_TL2S: 318
+route_N2TL_TL2E: 88
+route_S2TL_TL2E: 97
+route_N2TL_TL2W: 106
+route_S2TL_TL2N: 297
+route_W2TL_TL2N: 109
+route_W2TL_TL2S: 101
+route_S2TL_TL2W: 95
+route_E2TL_TL2W: 274
+route_E2TL_TL2N: 130
+route_E2TL_TL2S: 83
