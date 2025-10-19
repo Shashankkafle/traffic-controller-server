@@ -10,6 +10,7 @@ import datetime
 from shutil import copyfile
 import asyncio
 from model_methods.memory import Memory
+from services.traffic_data_fetcher import fetch_traffic_data
 
 
 import os
@@ -50,7 +51,7 @@ async def comparision_simulation(request):
         input_dim=80,
         model_path=model_path
     )
-    
+    fetch_traffic_data({})
     TrafficGen = UniversalTrafficGenerator(
         NET_FILE,
         OUTPUT_TRIPS_FILE,
@@ -88,21 +89,21 @@ async def comparision_simulation(request):
         durations=fixed_durations,
         
     )
-    Cyclic_Simulation.run(seed)
-    Model_Simulation.run(seed)
+    # Cyclic_Simulation.run(seed)
+    # Model_Simulation.run(seed)
     response_Data = {}
     response_Data['model_stats'] = {}
     response_Data['fixed_time'] = {}
-    response_Data['webster_fixed_timings'] = fixed_durations
-    response_Data['vehicles_per_lane_group'] = lane_group_counts
-    response_Data['model_stats']['queue_length'] = Model_Simulation.queue_length_episode
-    response_Data['fixed_time']['queue_length'] = Cyclic_Simulation.queue_length_episode
-    response_Data['model_stats']['average_wait_length'] = Model_Simulation.avg_wait_episode
-    response_Data['fixed_time']['average_wait_length'] = Cyclic_Simulation.avg_wait_episode
-    response_Data['model_stats']['cum_wait_time_per_vehicle'] = Model_Simulation.cum_wait_time_per_vehicle
-    response_Data['fixed_time']['cum_wait_time_per_vehicle'] = Cyclic_Simulation.cum_wait_time_per_vehicle
-    response_Data['model_stats']['total_wait'] =sum(Model_Simulation.cum_wait_time_per_vehicle.values())
-    response_Data['fixed_time']['total_wait'] = sum(Cyclic_Simulation.cum_wait_time_per_vehicle.values())
+    # response_Data['webster_fixed_timings'] = fixed_durations
+    # response_Data['vehicles_per_lane_group'] = lane_group_counts
+    # response_Data['model_stats']['queue_length'] = Model_Simulation.queue_length_episode
+    # response_Data['fixed_time']['queue_length'] = Cyclic_Simulation.queue_length_episode
+    # response_Data['model_stats']['average_wait_length'] = Model_Simulation.avg_wait_episode
+    # response_Data['fixed_time']['average_wait_length'] = Cyclic_Simulation.avg_wait_episode
+    # response_Data['model_stats']['cum_wait_time_per_vehicle'] = Model_Simulation.cum_wait_time_per_vehicle
+    # response_Data['fixed_time']['cum_wait_time_per_vehicle'] = Cyclic_Simulation.cum_wait_time_per_vehicle
+    # response_Data['model_stats']['total_wait'] =sum(Model_Simulation.cum_wait_time_per_vehicle.values())
+    # response_Data['fixed_time']['total_wait'] = sum(Cyclic_Simulation.cum_wait_time_per_vehicle.values())
 
 
 
